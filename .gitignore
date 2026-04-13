@@ -4,6 +4,8 @@ build/
 bin/
 obj/
 CMakeCache.txt
+result.txt
+text.md
 CMakeFiles/
 
 *.o
