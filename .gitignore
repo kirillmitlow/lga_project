@@ -8,6 +8,7 @@ result.txt
 text.md
 CMakeFiles/
 
+
 *.o
 *.ko
 *.obj
