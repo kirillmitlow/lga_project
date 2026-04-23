@@ -6,6 +6,7 @@ obj/
 CMakeCache.txt
 result.txt
 text.md
+grid.bin
 CMakeFiles/
 
 
