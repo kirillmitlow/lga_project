@@ -1,30 +1,12 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -O3 -I./include
-LDFLAGS = -lm
+CFLAGS = -Wall -I./include
 
-SRC_DIR = src
-BUILD_DIR = build
-OUTPUT_DIR = output
+all: lga.exe
 
-SRCS = $(wildcard $(SRC_DIR)/*.c)
 
-OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
+lga.exe: src/*.c
+	$(CC) $(CFLAGS) src/*.c -o lga.exe -lm
 
-TARGET = lga.exe
-
-all: directories $(TARGET)
-
-directories:
-	@mkdir -p $(BUILD_DIR)
-	@mkdir -p $(OUTPUT_DIR)
-
-$(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS)
-
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(BUILD_DIR)/*.o $(TARGET) $(OUTPUT_DIR)/*.ppm grid.bin result.txt
-
-.PHONY: all clean directories
+	rm -f lga.exe result.txt grid.bin output/*.ppm
